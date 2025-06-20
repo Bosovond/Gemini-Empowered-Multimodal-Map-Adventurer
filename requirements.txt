@@ -2,13 +2,9 @@ altair
 pandas
 streamlit
 google.genai
-os
-datetime
-random
 pyperclip
 pydantic
 folium
-pyperclip
 pep8
 pylint
 nose
