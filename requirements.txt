@@ -1,10 +1,11 @@
 altair
 pandas
+folium
 streamlit
+streamlit_folium
 google.genai
 pyperclip
 pydantic
-folium
 pep8
 pylint
 nose
