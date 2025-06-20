@@ -10,6 +10,8 @@ tags:
 pinned: false
 short_description: Gemini guides you to ancient and mysterious locales.
 license: unknown
+sdk_version: 1.46.0
+python_version: 3.13
 ---
 
 # Welcome to Streamlit!
