@@ -1,14 +1,14 @@
 ---
 title: Gemini Empowered Multimodal Map Adventurer Or GEMMA
-emoji: 🚀
-colorFrom: red
-colorTo: red
-sdk: docker
+emoji: 🗺
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
 app_port: 8501
 tags:
 - streamlit
 pinned: false
-short_description: Gemini Empowered Multimodal Map AdventurerAi Studio Branch
+short_description: Gemini guides you to ancient and mysterious locales.
 license: unknown
 ---
 
