@@ -19,6 +19,7 @@ from google.genai import types
 from pydantic import BaseModel, Field
 from pyperclip import copy, paste
 
+
 # Load API key from environment
 
 load_dotenv()
@@ -48,7 +49,7 @@ def get_gemini_response(messages):
 
 # --- Data and State Management ---
 
-# Define location categories
+# Define location categories; Easily extendable
 categories = {
     "🌌 Ancient": [
         {
@@ -69,8 +70,18 @@ categories = {
             "coords": [37.2231, 38.9226],
             "url": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe",
         },
-        #        {"name": "", "summary": "", "coords": [], "url":},
-        #        {"name": "", "summary": "", "coords": [], "url":}
+#       {
+#           "name": "",
+#           "summary": "",
+#           "coords": [],
+#           "url": "",
+#       },
+#       {
+#           "name": "",
+#           "summary": "",
+#           "coords": [],
+#           "url": "",
+#       },
     ],
     "🧿 Esoteric": [
         {
@@ -91,7 +102,18 @@ categories = {
             "coords": [25.0, -71.0],
             "url": "https://en.wikipedia.org/wiki/Bermuda_Triangle",
         },
-        #        {"name": "", "summary": "", "coords": [], "url":}
+#       {
+#           "name": "",
+#           "summary": "",
+#           "coords": [],
+#           "url": "",
+#       },
+#       {
+#           "name": "",
+#           "summary": "",
+#           "coords": [],
+#           "url": "",
+#       },
     ],
     "🔮 Surreal": [
         {
@@ -130,6 +152,18 @@ categories = {
             "coords": [-77.5291, 167.1522],
             "url": "https://en.wikipedia.org/wiki/Mount_Erebus",
         },
+#       {
+#           "name": "",
+#           "summary": "",
+#           "coords": [],
+#           "url": "",
+#       },
+#       {
+#           "name": "",
+#           "summary": "",
+#           "coords": [],
+#           "url": "",
+#       },
     ],
     "💫 The Veil Thins..": [
         {
@@ -168,7 +202,18 @@ categories = {
             "coords": [60.9030, 101.9097],
             "url": "https://en.wikipedia.org/wiki/Tunguska_event",
         },
-        #         {"name": "", "summary": "", "coords": [], "url": ""}
+#        {
+#            "name": "",
+#            "summary": "",
+#            "coords": [],
+#            "url": "",
+#        },
+#        {
+#            "name": "",
+#            "summary": "",
+#            "coords": [],
+#            "url": "",
+#        },
     ],
 }
 
@@ -306,14 +351,14 @@ def ai_suggest_location():
 #-------------------------------------------------------------
 # --- Streamlit UI Starts Here ---
 
-st.set_page_config(page_title="G.E.M.M.A.", layout="wide")
-st.title("🗺️ Gemini Emopowered Multimodal Map Adventurer/n/n-or-/n/nG.E.M.M.A.")
+st.set_page_config(page_title="<b>G.E.M.M.A.</b>", layout="wide")
+st.title("🗺️🔍 Gemini Emopowered Multimodal Map Adventurer/n/n-or-/n/n :violet[<b>G.E.M.M.A.</b>] 🔎🗺️ ")
 st.markdown("---")
 
 main_col, chat_col = st.columns([2, 1])
 
 with main_col:
-    st.markdown("##### --- Choose a Path")
+    st.markdown("##### --- What sort of adventures do you seek today?")
     button_cols = st.columns(4)
     
     if button_cols[0].button("🎲 Dealer's Choice", use_container_width=True):
@@ -352,7 +397,7 @@ with main_col:
     selected_place = st.session_state['selected_place']
     st.markdown(f"#### 📍 Now viewing: {selected_place['name']}")
     
-    m = Map(location=selected_place['coords'], zoom_start=6, tiles=None)
+    m = Map(location=selected_place['coords'], zoom_start=10, tiles=None)
     
     TileLayer(
         'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', 
@@ -431,7 +476,7 @@ with main_col:
 #----Chat UI Beside Map-------
 
 with chat_col:
-    st.markdown("#### 🧠 Chat with the Oracle")
+    st.markdown("#### --- A whole world full of weird awaits you...\n\n...What do you await?")
     
     chat_box = st.container(height=600)
     with chat_box:
